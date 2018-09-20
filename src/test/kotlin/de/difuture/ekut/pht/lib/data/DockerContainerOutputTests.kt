@@ -10,14 +10,12 @@ import org.junit.Test
  */
 class DockerContainerOutputTests {
 
-    private val EMTPY = ""
-
     private val testIds = assertAllEqual {
         DockerContainerOutput(
                 DockerContainerId(it),
                 0,
-                EMTPY,
-                EMTPY).containerId.repr
+                EMPTY,
+                EMPTY).containerId.repr
     }
 
     @Test
@@ -32,6 +30,6 @@ class DockerContainerOutputTests {
 
     @Test(expected = IllegalArgumentException::class)
     fun assert_error_if_invalid_name() {
-        DockerContainerOutput(DockerContainerId(invalidID), 0, EMTPY, EMTPY)
+        DockerContainerOutput(DockerContainerId(invalidID), 0, EMPTY, EMPTY)
     }
 }

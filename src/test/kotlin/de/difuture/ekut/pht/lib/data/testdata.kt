@@ -166,3 +166,5 @@ internal fun assertAllEqual(wrap: (String) -> String) = { addPrefix: Boolean ->
     }
 }
 internal const val invalidID = "   -"
+
+internal const val EMPTY = ""
