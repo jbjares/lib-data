@@ -32,4 +32,16 @@ class DockerContainerOutputTests {
     fun assert_error_if_invalid_name() {
         DockerContainerOutput(DockerContainerId(invalidID), 0, EMPTY, EMPTY)
     }
+
+    @Test
+    fun assert_container_output_equals_all_properties_no_prefix() {
+
+        assertAllEqualDockerContainerOutput(false)
+    }
+
+    @Test
+    fun assert_container_output_equals_all_properties_with_prefix() {
+
+        assertAllEqualDockerContainerOutput(true)
+    }
 }

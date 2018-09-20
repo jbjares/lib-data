@@ -1,6 +1,7 @@
 package de.difuture.ekut.pht.lib.data
 
 import org.junit.Assert
+import java.util.Random
 
 /**
  *  IDs that should be valid and have no sha256: prefix
@@ -157,14 +158,43 @@ private val noPrefixIds = listOf(
         "75593b4c882f"
 )
 
+private fun withPrefix(id: String, prefix: Boolean) = if (prefix) "sha256:$id" else id
+
 internal fun assertAllEqual(wrap: (String) -> String) = { addPrefix: Boolean ->
 
     noPrefixIds.forEach {
-
-        val item = if (addPrefix) "sha256:$it" else it
+        val item = withPrefix(it, addPrefix)
         Assert.assertEquals(item, wrap(item))
     }
 }
-internal const val invalidID = "   -"
 
+private fun String.Companion.random(random: Random): String {
+
+    val source = "abcdefghijklmnopqrtsuvwxyz0123456789"
+    val ls = List(random.nextInt(100)) { source[random.nextInt(source.length)] }
+    return ls.joinToString("")
+}
+
+internal fun assertAllEqualDockerContainerOutput(addPrefix: Boolean) {
+
+    val random = Random()
+
+    noPrefixIds.forEach {
+
+        val id = DockerContainerId(withPrefix(it, addPrefix))
+        val exitCode = random.nextInt()
+        val stdout = String.random(random)
+        val stderr = String.random(random)
+
+        with(DockerContainerOutput(id, exitCode, stdout, stderr)) {
+
+            Assert.assertEquals(this.containerId, id)
+            Assert.assertEquals(this.exitCode, exitCode)
+            Assert.assertEquals(this.stdout, stdout)
+            Assert.assertEquals(this.stderr, stderr)
+        }
+    }
+}
+
+internal const val invalidID = "   -"
 internal const val EMPTY = ""
