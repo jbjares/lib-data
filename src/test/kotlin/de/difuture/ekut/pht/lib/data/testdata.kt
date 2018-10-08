@@ -186,7 +186,7 @@ internal fun assertAllEqualDockerContainerOutput(addPrefix: Boolean) {
         val stdout = String.random(random)
         val stderr = String.random(random)
 
-        with(DockerContainerOutput(id, exitCode, stdout, stderr)) {
+        with(DockerContainerOutput(id, exitCode, stdout, stderr, emptyList())) {
 
             Assert.assertEquals(this.containerId, id)
             Assert.assertEquals(this.exitCode, exitCode)

@@ -28,5 +28,11 @@ data class DockerContainerOutput(
     /**
      * Standard error of the container, represented as [String]
      */
-    val stderr: String
+    val stderr: String,
+
+    /**
+     * List of warnings that is potentially generated while executing the container.
+     * This list is potentially empty
+     */
+    val warnings: List<String>
 )
