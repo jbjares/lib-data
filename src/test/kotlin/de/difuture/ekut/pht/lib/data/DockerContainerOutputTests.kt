@@ -15,7 +15,7 @@ class DockerContainerOutputTests {
                 DockerContainerId(it),
                 0,
                 EMPTY,
-                EMPTY).containerId.repr
+                EMPTY, emptyList()).containerId.repr
     }
 
     @Test
@@ -30,7 +30,7 @@ class DockerContainerOutputTests {
 
     @Test(expected = IllegalArgumentException::class)
     fun assert_error_if_invalid_name() {
-        DockerContainerOutput(DockerContainerId(invalidID), 0, EMPTY, EMPTY)
+        DockerContainerOutput(DockerContainerId(invalidID), 0, EMPTY, EMPTY, emptyList())
     }
 
     @Test
