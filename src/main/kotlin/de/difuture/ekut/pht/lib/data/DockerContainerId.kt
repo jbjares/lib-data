@@ -1,9 +1,11 @@
 package de.difuture.ekut.pht.lib.data
 
+import de.difuture.ekut.pht.lib.internal.requireIsValidDockerHash
+
 /**
- * Represents the ID of a Docker Container.
+ * Represents the ID from a Docker Container.
  *
- * The [String] representation of instances must be a a valid Docker container ID.
+ * The [String] representation from instances must be a a valid Docker container ID.
  *
  * @author Lukas Zimmermann
  * @since 0.0.1

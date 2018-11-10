@@ -1,7 +1,5 @@
 language: java
 before_install:
 - ./gradlew clean
-before_deploy:
-- ./gradlew generatePomFileForMavenPublication
 after_success:
 - bash <(curl -s https://codecov.io/bash)
