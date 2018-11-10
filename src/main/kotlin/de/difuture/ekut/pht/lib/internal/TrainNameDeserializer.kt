@@ -5,14 +5,14 @@ import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.databind.DeserializationContext
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer
 import com.fasterxml.jackson.databind.node.TextNode
-import de.difuture.ekut.pht.lib.data.TrainId
+import de.difuture.ekut.pht.lib.data.TrainName
 import java.io.IOException
 
-internal class TrainIdDeserializer @JvmOverloads constructor(vc: Class<*>? = null) : StdDeserializer<TrainId>(vc) {
+internal class TrainNameDeserializer @JvmOverloads constructor(vc: Class<*>? = null) : StdDeserializer<TrainName>(vc) {
 
     @Throws(IOException::class, JsonProcessingException::class)
-    override fun deserialize(jp: JsonParser, ctxt: DeserializationContext): TrainId {
+    override fun deserialize(jp: JsonParser, ctxt: DeserializationContext): TrainName {
         val node = jp.codec.readTree<TextNode>(jp)
-        return TrainId.from(node.asText())
+        return TrainName.from(node.asText())
     }
 }

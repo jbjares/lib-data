@@ -4,7 +4,7 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class TrainIdTests {
+class TrainNameTests {
 
     private val trainIds = listOf(
             "train_iris",
@@ -19,7 +19,7 @@ class TrainIdTests {
         with(jacksonObjectMapper()) {
 
             trainIds.forEach {
-                assertEquals(writeValueAsString(it), TrainId.from(it).repr.quoted())
+                assertEquals(writeValueAsString(it), TrainName.from(it).repr.quoted())
             }
         }
     }
