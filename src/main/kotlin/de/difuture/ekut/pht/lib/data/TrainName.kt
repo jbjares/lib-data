@@ -2,8 +2,8 @@ package de.difuture.ekut.pht.lib.data
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import com.fasterxml.jackson.databind.annotation.JsonSerialize
-import de.difuture.ekut.pht.lib.internal.TrainIdDeserializer
-import de.difuture.ekut.pht.lib.internal.TrainIdSerializer
+import de.difuture.ekut.pht.lib.internal.TrainNameDeserializer
+import de.difuture.ekut.pht.lib.internal.TrainNameSerializer
 
 /**
  * Represents the ID from a train.
@@ -11,13 +11,13 @@ import de.difuture.ekut.pht.lib.internal.TrainIdSerializer
  * @author Lukas Zimmermann
  * @since 0.0.1
  */
-@JsonSerialize(using = TrainIdSerializer::class)
-@JsonDeserialize(using = TrainIdDeserializer::class)
-interface TrainId {
+@JsonSerialize(using = TrainNameSerializer::class)
+@JsonDeserialize(using = TrainNameDeserializer::class)
+interface TrainName {
 
     val repr: String
 
-    private data class GenericTrainId(override val repr: String) : TrainId
+    private data class GenericTrainName(override val repr: String) : TrainName
 
     companion object {
 
@@ -25,10 +25,10 @@ interface TrainId {
         // A train needs to start with the train_ prefix
         private val regex = Regex("train_[a-zA-Z](?:[a-zA-Z0-9_-]*[a-z0-9])?")
 
-        fun from(input: String): TrainId {
+        fun from(input: String): TrainName {
 
             require(input.matches(regex))
-            return GenericTrainId(input)
+            return GenericTrainName(input)
         }
     }
 }
