@@ -1,4 +1,4 @@
-package de.difuture.ekut.pht.lib.data
+package de.difuture.ekut.pht.lib.internal
 
 /**
  * The regular expression for Docker Hash values. The sha256: prefix is optional.
