@@ -3,15 +3,29 @@
 
 
 # lib-data
-Data classes used for Library Signatures. This is the root of the PHT Library.
+Data classes and Extension Functions that are common to all PHT components.
+ 
+This is the root of the PHT Library.
 
 # Overview
 
-The following Data Classes are provided
+## Data Classes
+
+The following Data Classes are provided:
 
 Class name              | Purpose
 ------------------------|---------------------------------------
 `DockerContainerId`     | Represents the ID of a Docker Container
-`DockerContainerOutput` | Represents Output of a Container
+`DockerContainerOutput` | Represents Output of a Container when exited
 `DockerImageId`         | Represents the ID of a Docker Image
 `DockerNetworkid`       | Represents the ID of a Docker Network
+
+## Extension Functions
+
+This library also provides the following extension functions:
+
+Class name            | Function Name         | Description
+----------------------|-----------------------|----------------------------------------------------------------------------------------
+`Map<String, String>` | `asKeyValueList`      | Maps the key-value pairs of the map down to a List with `<key><sep><value>` as entries.
+`String`              | `ensureTrailing`      | Ensures that the String ends with the specified character.
+`String`              | `ensureTrailingSlash` | Ensures that the String ends with the '/' character.

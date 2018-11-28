@@ -3,6 +3,9 @@ package de.difuture.ekut.pht.lib.data
 /**
  * Represents the output from a Docker Container after it has been exited.
  *
+ * Note that the existence of objects of this class is unrelated to the existence
+ * of the container on the underlying Docker host system.
+ *
  * @author Lukas Zimmermann
  * @since 0.0.1
  *

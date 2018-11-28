@@ -6,7 +6,7 @@ import de.difuture.ekut.pht.lib.internal.TrainNameDeserializer
 import de.difuture.ekut.pht.lib.internal.TrainNameSerializer
 
 /**
- * Represents the ID from a train.
+ * Represents the Name of a train.
  *
  * @author Lukas Zimmermann
  * @since 0.0.1
@@ -15,12 +15,14 @@ import de.difuture.ekut.pht.lib.internal.TrainNameSerializer
 @JsonDeserialize(using = TrainNameDeserializer::class)
 interface TrainName {
 
+    /**
+     * The [String] representation of the Train Name
+     */
     val repr: String
 
     private data class GenericTrainName(override val repr: String) : TrainName
 
     companion object {
-
         fun from(input: String): TrainName {
             require(input.matches(regex))
             return GenericTrainName(input)
