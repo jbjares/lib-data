@@ -21,14 +21,13 @@ interface TrainName {
 
     companion object {
 
-        // The regex that we allow for potential values from the trainId
-        // A train needs to start with the train_ prefix
-        private val regex = Regex("train_[a-zA-Z](?:[a-zA-Z0-9_-]*[a-z0-9])?")
-
         fun from(input: String): TrainName {
-
             require(input.matches(regex))
             return GenericTrainName(input)
         }
+
+        // The regex that we allow for potential values from the train name
+        // A train needs to start with the train_ prefix
+        private val regex = Regex("train_[a-zA-Z](?:[a-zA-Z0-9_-]*[a-z0-9])?")
     }
 }

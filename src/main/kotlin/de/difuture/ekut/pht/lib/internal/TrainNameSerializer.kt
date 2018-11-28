@@ -15,7 +15,6 @@ internal class TrainNameSerializer @JvmOverloads constructor(t: Class<TrainName>
         jgen: JsonGenerator,
         provider: SerializerProvider
     ) {
-
         jgen.writeString(value.repr)
     }
 }
