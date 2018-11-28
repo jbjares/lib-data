@@ -99,9 +99,7 @@ abstract class DockerIdTestBase<T> {
 
     @Test
     fun `repr of object is same as input`() {
-
         validIds.forEach { noPrefix ->
-
             val withPrefix = "sha256:$noPrefix"
             assertEquals(noPrefix, reprOfObject(createObject(noPrefix)))
             assertEquals(withPrefix, reprOfObject(createObject(withPrefix)))
@@ -110,7 +108,6 @@ abstract class DockerIdTestBase<T> {
 
     @Test
     fun `invalidIds will throw Invalid Argument Exception`() {
-
         invalidIDs.forEach {
             assertThrows<IllegalArgumentException> { createObject(it) }
         }
