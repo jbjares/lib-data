@@ -18,7 +18,8 @@ Class name              | Purpose
 `DockerContainerId`     | Represents the ID of a Docker Container
 `DockerContainerOutput` | Represents Output of a Container when exited
 `DockerImageId`         | Represents the ID of a Docker Image
-`DockerNetworkid`       | Represents the ID of a Docker Network
+`DockerNetworkId`       | Represents the ID of a Docker Network
+`DockerNetworkName`     | Represents the Name of a Docker Network
 
 ## Extension Functions
 

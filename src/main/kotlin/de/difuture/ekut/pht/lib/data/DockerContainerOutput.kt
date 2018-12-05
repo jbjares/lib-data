@@ -13,7 +13,7 @@ package de.difuture.ekut.pht.lib.data
 data class DockerContainerOutput(
 
     /**
-    * The ID from the container that has been started
+    * The ID from the container that has been started and which has exited to produce this output
     */
     val containerId: DockerContainerId,
 
