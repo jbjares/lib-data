@@ -1,9 +1,9 @@
 package de.difuture.ekut.pht.lib.data
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
+import java.lang.IllegalArgumentException
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class TrainNameTests {
 
@@ -34,10 +34,10 @@ class TrainNameTests {
         }
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException::class)
     fun `illegal Strings cannot be turned into Train Names`() {
             illegalTrainNames.forEach {
-                assertThrows<IllegalArgumentException> { TrainName.from(it) }
+                TrainName.from(it)
             }
         }
 }

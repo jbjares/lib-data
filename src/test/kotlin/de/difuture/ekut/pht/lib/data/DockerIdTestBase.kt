@@ -1,8 +1,8 @@
 package de.difuture.ekut.pht.lib.data
 
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
+import java.lang.IllegalArgumentException
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 abstract class DockerIdTestBase<T> {
 
@@ -106,10 +106,10 @@ abstract class DockerIdTestBase<T> {
         }
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException::class)
     fun `invalidIds will throw Invalid Argument Exception`() {
         invalidIDs.forEach {
-            assertThrows<IllegalArgumentException> { createObject(it) }
+            createObject(it)
         }
     }
 }
